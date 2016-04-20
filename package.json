@@ -1,0 +1,59 @@
+{
+  "name": "aurelia-date-observer",
+  "version": "1.0.0",
+  "description": "Fast and efficient Date objects observer plugin for Aurelia Framework.",
+  "keywords": [
+    "aurelia",
+    "date",
+    "observer"
+  ],
+  "homepage": "https://github.com/sormy/aurelia-date-observer",
+  "bugs": {
+    "url": "https://github.com/sormy/aurelia-date-observer/issues"
+  },
+  "license": "MIT",
+  "author": "Artem Butusov <art.sormy@gmail.com> (https://artembutusov.com)",
+  "main": "dist/commonjs/aurelia-date-observer.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sormy/aurelia-date-observer"
+  },
+  "jspmNodeConversion": false,
+  "jspm": {
+    "registry": "npm",
+    "main": "aurelia-date-observer",
+    "format": "amd",
+    "directories": {
+      "dist": "dist/amd"
+    },
+    "dependencies": {
+      "aurelia-framework": "^1.0.0-beta.1.1.0"
+    }
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "aurelia-tools": "^0.1.15",
+    "babel-dts-generator": "^0.4.7",
+    "babel-plugin-syntax-flow": "^6.5.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-modules-amd": "^6.6.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.0",
+    "babel-plugin-transform-es2015-modules-systemjs": "^6.6.5",
+    "babel-plugin-transform-flow-strip-types": "^6.7.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "del": "^1.1.0",
+    "gulp": "^3.8.10",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-rename": "^1.2.2",
+    "object.assign": "^1.0.3",
+    "require-dir": "^0.1.0",
+    "run-sequence": "^1.0.2",
+    "through2": "^2.0.0",
+    "vinyl-paths": "^1.0.0"
+  }
+}
