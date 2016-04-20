@@ -108,7 +108,7 @@ export class Event {
 
 ## Configuration ##
 
-Plugin options could be passsed like below:
+Plugin options could be passed like below:
 
   ```javascript
   aurelia.use.plugin('aurelia-date-observer', {
