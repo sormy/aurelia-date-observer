@@ -22,7 +22,7 @@ There are two modes for observe mode:
 1. Install aurelia-date-observer:
 
   ```bash
-  jspm install aurelia-date-observer --dev
+  jspm install aurelia-date-observer
   ```
   
 2. Use the plugin in your app's main.js:
