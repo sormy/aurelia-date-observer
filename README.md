@@ -41,6 +41,71 @@ There are two modes for observe mode:
   }
   ```
 
+## Example ##
+
+This example will show how Date object binding could be used.
+
+Example below with `aurelia-date-observer` plugin will work and use **0** resources 
+in background to track model changes.
+
+Without `aurelia-date-observer` plugin and with `@computedFrom('timestamp')` annotation 
+Aurelia will not be able to track timestamp changes.
+
+Without both `aurelia-date-observer` plugin and `@computedFrom('timestamp')` annotation 
+Aurelia will fall back to dirty checking and will eat resources in background. For example, 
+if it's a huge schedule application with a lot of events on schedule.
+
+The difference could be easily tracked with `aurelia-stats` plugin.
+
+```javascript
+import {inlineView} from 'aurelia-framework';
+import * as moment from 'moment';
+
+@inlineView(`
+  <template>
+    <div class="event" css.bind="{ top: top + 'px', height: height + 'px' }">
+      ${time}
+    </div>
+  </template>
+`)
+export class Event {
+  timestamp;  // Event start date/time, Date
+  duration;   // Event duration in minutes, Number
+  
+  topOffset = 0;
+  hourHeight = 48;
+
+  @computedFrom('timestamp')
+  get time() {
+    return moment(this.timestamp).format('h:mm A');
+  }
+  
+  @computedFrom('offset', 'topOffset', 'hourHeight')
+  get top() {
+    return this.topOffset + this.offset * this.hourHeight / 60;
+  }
+
+  @computedFrom('duration', 'hourHeight')
+  get height() {
+    return this.duration * this.hourHeight / 60;
+  }
+  
+  @computedFrom('timestamp')
+  get offset() {
+    return this.timestamp.getMinutes() + this.timestamp.getHours() * 60;
+  }
+  
+  set offset(value) {
+    var hours = Math.floor(value / 60);
+    var minutes = Math.round(value % 60);
+    // Here setter is internally triggered so Aurelia notified about object value change.
+    // Without plugin that will not work and Aurelia will not be able to identify object change.
+    this.timestamp.setHours(hours);
+    this.timestamp.setMinutes(minutes);
+  }
+}
+```
+
 ## Configuration ##
 
 Plugin options could be passsed like below:
